@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Team:</strong>
+  <%= @team_list.team_id %>
+</p>
+
+<p>
+  <strong>Team name:</strong>
+  <%= @team_list.team_name %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @team_list.score %>
+</p>
+
+<%= link_to 'Edit', edit_team_list_path(@team_list) %> |
+<%= link_to 'Back', team_lists_path %>

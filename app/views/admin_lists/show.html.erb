@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @admin_list.channel_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin_list.name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_list_path(@admin_list) %> |
+<%= link_to 'Back', admin_lists_path %>

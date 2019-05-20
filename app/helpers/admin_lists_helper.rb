@@ -1,0 +1,2 @@
+module AdminListsHelper
+end

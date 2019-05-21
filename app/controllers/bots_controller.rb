@@ -8,6 +8,7 @@ class BotsController < ApplicationController
         when :dual
             dual_content_check(channel_id, recieved_text)
         end
+        head :ok
     end
     def source
         source =params['events'][0]['source']

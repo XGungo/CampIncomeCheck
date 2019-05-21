@@ -22,7 +22,7 @@ class BotsController < ApplicationController
     end
         
     def dual_content_check(channel_id, received_text)
-        unless AdminList.where(channel_id: channel_id).empty?
+        if AdminList.where(channel_id: channel_id).empty?
             p AdminList.where(channel_id: channel_id).empty?
             name = AdminList.where(channel_id: channel_id)
             p "#{name} is a admin"

@@ -4,10 +4,10 @@ class BotsController < ApplicationController
     def webhook()      
         case channel_status(source)
         when 'group', 'room'
-            group_content_check(channel_id, recieved_text)
+            group_content_check(channel_id, received_text)
         when 'user'
-            dual_content_check(channel_id, recieved_text)
-            p "#{recieved_text}"
+            dual_content_check(channel_id, received_text)
+            p "#{received_text}"
         end
         head :ok
     end
@@ -21,22 +21,22 @@ class BotsController < ApplicationController
         source['type']
     end
         
-    def dual_content_check(channel_id, recieved_text)
+    def dual_content_check(channel_id, received_text)
         unless AdminList.where(channel_id: channel_id).nil?
-            p 'you,#{recieved_text[7..-1]},are the admin'
+            p 'you,#{received_text[7..-1]},are the admin'
         else
-            admin_regist(channel_id,recieved_text)
-            p 'you,#{recieved_text[7..-1]},have registed'
+            admin_regist(channel_id,received_text)
+            p 'you,#{received_text[7..-1]},have registed'
         end
     end
-    def admin_regist(channel_id,recieved_text)
-        if recieved_text[0..6] == 'regist;'
-            name = recieved_text[7..-1]
+    def admin_regist(channel_id,received_text)
+        if received_text[0..6] == 'regist;'
+            name = received_text[7..-1]
             AdminList.create(channel_id: channel_id, name: name)
         end
     end
 
-    def group_content_check(channel_id, recieved_text)
+    def group_content_check(channel_id, received_text)
 
     end
     

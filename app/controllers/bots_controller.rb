@@ -7,7 +7,7 @@ class BotsController < ApplicationController
             group_content_check(channel_id, recieved_text)
         when 'user'
             #dual_content_check(channel_id, recieved_text)
-            p '#{recieved_text}'
+            p "#{recieved_text}"
         end
         head :ok
     end

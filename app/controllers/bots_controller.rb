@@ -6,7 +6,7 @@ class BotsController < ApplicationController
         when 'group', 'room'
             group_content_check(channel_id, recieved_text)
         when 'user'
-            # dual_content_check(channel_id, recieved_text)
+            dual_content_check(channel_id, recieved_text)
             p 'did'
         end
         head :ok
@@ -19,7 +19,6 @@ class BotsController < ApplicationController
     end
     def channel_status(source)
         source['type']
-        
     end
         
     def dual_content_check(channel_id, recieved_text)

@@ -6,7 +6,7 @@ class BotsController < ApplicationController
         when 'group', 'room'
             group_content_check(channel_id, recieved_text)
         when 'user'
-            #dual_content_check(channel_id, recieved_text)
+            dual_content_check(channel_id, recieved_text)
             p "#{recieved_text}"
         end
         head :ok
@@ -40,8 +40,8 @@ class BotsController < ApplicationController
 
     end
     
-    def recieved_text
-        message = params['event'][0]['message']
+    def received_text
+        message = params['events'][0]['message']
         message['text'] unless message.nil?
     end
 

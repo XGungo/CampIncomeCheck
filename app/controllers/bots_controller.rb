@@ -11,9 +11,11 @@ class BotsController < ApplicationController
     end
     def source
         source =params['events'][0]['source']
+        source unless source.nil?
     end
     def channel_id(source)
-        source['groupId'] || source['roomId'] || source['userId']
+        channel_id = source['groupId'] || source['roomId'] || source['userId']
+        channel_id unless channel_id.nil?
     end
     def channel_status(source)
         unless source['groupId'].nil? || source['roomId'].nil?

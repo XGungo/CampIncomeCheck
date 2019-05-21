@@ -23,7 +23,8 @@ class BotsController < ApplicationController
         
     def dual_content_check(channel_id, received_text)
         unless AdminList.where(channel_id: channel_id).nil?
-            p "you,#{received_text[7..-1]},are the admin"
+            name = AdminList.where(channel_id: channel_id).last&.name
+            p "#{name} is a admin"
         else
             admin_regist(channel_id,received_text)
             
@@ -33,7 +34,7 @@ class BotsController < ApplicationController
         if received_text[0..6] == "regist;"
             name = received_text[7..-1]
             AdminList.create(channel_id: channel_id, name: name)
-            p "you,#{received_text[7..-1]},have registed"
+            p "#{name},have registed"
         end
     end
 

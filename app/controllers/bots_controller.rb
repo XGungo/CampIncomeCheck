@@ -3,30 +3,23 @@ class BotsController < ApplicationController
     protect_from_forgery with: :null_session
     def webhook()      
         case channel_status(source)
-        when :group
+        when 'group', 'room'
             group_content_check(channel_id, recieved_text)
-        when :dual
+        when 'user'
             # dual_content_check(channel_id, recieved_text)
             p 'did'
         end
         head :ok
     end
     def source
-        source =params['events'][0]['source']
-        source unless source.nil?
+        params['events'][0]['source']
     end
-    def channel_id(source)
-        channel_id = source['groupId'] || source['roomId'] || source['userId']
-        channel_id unless channel_id.nil?
+    def channel_id
+        source['groupId'] || source['roomId'] || source['userId']
     end
     def channel_status(source)
-        unless source['groupId'].nil? || source['roomId'].nil?
-            p 'status group'
-            return :group
-        else
-            p 'status dual'
-            return :dual
-        end
+        source['type']
+        
     end
         
     def dual_content_check(channel_id, recieved_text)

@@ -10,7 +10,7 @@ class BotsController < ApplicationController
         end
     end
     def source
-        params['events'][0]['source']
+        source =params['events'][0]['source']
     end
     def channel_id(source)
         source['groupId'] || source['roomId'] || source['userId']

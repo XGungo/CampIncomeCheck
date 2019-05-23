@@ -1,0 +1,32 @@
+<%= form_with(model: user_list, local: true) do |form| %>
+  <% if user_list.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_list.errors.count, "error") %> prohibited this user_list from being saved:</h2>
+
+      <ul>
+      <% user_list.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :channel_id %>
+    <%= form.text_field :channel_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dual_score %>
+    <%= form.number_field :dual_score %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

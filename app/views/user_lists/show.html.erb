@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Channel:</strong>
+  <%= @user_list.channel_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user_list.name %>
+</p>
+
+<p>
+  <strong>Dual score:</strong>
+  <%= @user_list.dual_score %>
+</p>
+
+<%= link_to 'Edit', edit_user_list_path(@user_list) %> |
+<%= link_to 'Back', user_lists_path %>

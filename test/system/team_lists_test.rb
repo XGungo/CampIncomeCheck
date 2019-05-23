@@ -14,9 +14,10 @@ class TeamListsTest < ApplicationSystemTestCase
     visit team_lists_url
     click_on "New Team List"
 
-    fill_in "Score", with: @team_list.score
+    fill_in "Channel", with: @team_list.channel_id
     fill_in "Team", with: @team_list.team_id
     fill_in "Team name", with: @team_list.team_name
+    fill_in "Total score", with: @team_list.total_score
     click_on "Create Team list"
 
     assert_text "Team list was successfully created"
@@ -27,9 +28,10 @@ class TeamListsTest < ApplicationSystemTestCase
     visit team_lists_url
     click_on "Edit", match: :first
 
-    fill_in "Score", with: @team_list.score
+    fill_in "Channel", with: @team_list.channel_id
     fill_in "Team", with: @team_list.team_id
     fill_in "Team name", with: @team_list.team_name
+    fill_in "Total score", with: @team_list.total_score
     click_on "Update Team list"
 
     assert_text "Team list was successfully updated"

@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  channel_id: MyString
   team_id: MyString
   team_name: MyString
-  score: 
+  total_score: 1
 
 two:
+  channel_id: MyString
   team_id: MyString
   team_name: MyString
-  score: 
+  total_score: 1

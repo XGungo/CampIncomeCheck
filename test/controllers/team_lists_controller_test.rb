@@ -17,7 +17,7 @@ class TeamListsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create team_list" do
     assert_difference('TeamList.count') do
-      post team_lists_url, params: { team_list: { score: @team_list.score, team_id: @team_list.team_id, team_name: @team_list.team_name } }
+      post team_lists_url, params: { team_list: { channel_id: @team_list.channel_id, team_id: @team_list.team_id, team_name: @team_list.team_name, total_score: @team_list.total_score } }
     end
 
     assert_redirected_to team_list_url(TeamList.last)
@@ -34,7 +34,7 @@ class TeamListsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update team_list" do
-    patch team_list_url(@team_list), params: { team_list: { score: @team_list.score, team_id: @team_list.team_id, team_name: @team_list.team_name } }
+    patch team_list_url(@team_list), params: { team_list: { channel_id: @team_list.channel_id, team_id: @team_list.team_id, team_name: @team_list.team_name, total_score: @team_list.total_score } }
     assert_redirected_to team_list_url(@team_list)
   end
 

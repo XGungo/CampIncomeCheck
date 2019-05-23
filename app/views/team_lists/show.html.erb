@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Channel:</strong>
+  <%= @team_list.channel_id %>
+</p>
+
+<p>
   <strong>Team:</strong>
   <%= @team_list.team_id %>
 </p>
@@ -11,8 +16,8 @@
 </p>
 
 <p>
-  <strong>Score:</strong>
-  <%= @team_list.score %>
+  <strong>Total score:</strong>
+  <%= @team_list.total_score %>
 </p>
 
 <%= link_to 'Edit', edit_team_list_path(@team_list) %> |

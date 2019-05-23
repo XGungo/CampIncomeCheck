@@ -1,4 +1,4 @@
-module ContentCheck
+module DualContentCheck
     def dual_content_check(channel_id, received_text)
         case dual_status(channel_id)
         when :admin
@@ -34,4 +34,12 @@ module ContentCheck
         UserList.create(channel_id: channel_id, name: name, dual_score: ini_score)
         p "#{name},have just registed User"
     end
+    # merged_regist 
+    # def regist(channel_id, received_text, dual_status)
+    #     status = dual_status.to_s
+    #     return nil unless received_text.index(status + ';') != 0
+    #     name_index = status.size + 1
+    #     name = received_text[name_index..-1]
+    # end
+
 end

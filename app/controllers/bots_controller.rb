@@ -1,5 +1,5 @@
 
-class BotsController < ApplicationController
+class BotsController < LineSettingsController
     protect_from_forgery with: :null_session
     def webhook()      
         case channel_status(source)
@@ -11,16 +11,7 @@ class BotsController < ApplicationController
         end
         head :ok
     end
-    def source
-        params['events'][0]['source']
-    end
-    def channel_id
-        source['groupId'] || source['roomId'] || source['userId']
-    end
-    def channel_status(source)
-        source['type']
-    end
-        
+    
     def dual_content_check(channel_id, received_text)
         case dual_status(channel_id)
         when :admin
@@ -79,12 +70,5 @@ class BotsController < ApplicationController
         TeamList.create(channel_id: channel_id, name: name)
         p "#{name},have just registed"
     end    
-    def received_text
-        message = params['events'][0]['message']
-        message['text'] unless message.nil?
-    end
 
-    def test
-        render plain:'welcome'
-    end
 end

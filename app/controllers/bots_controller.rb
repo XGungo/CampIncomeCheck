@@ -53,7 +53,7 @@ class BotsController < ApplicationController
         ini_score = 1000
         return nil unless received_text[0..4] == 'user;'
         name = received_text[5..-1]
-        UserList.create(channel_id: channel_id, name: name, score: ini_score)
+        UserList.create(channel_id: channel_id, name: name, dual_score: ini_score)
         p "#{name},have just registed User"
     end
     # merged_regist 

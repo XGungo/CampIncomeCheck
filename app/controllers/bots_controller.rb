@@ -29,15 +29,15 @@ class BotsController < ApplicationController
             admin_regist(channel_id,received_text)
             user_regist(channel_id, received_text)
         end 
-
-        
     end
     def dual_status(channel_id)
         unless AdminList.where(channel_id: channel_id).empty?
             name = AdminList.where(channel_id: channel_id).last&.name
             p "Admin, #{name}, has been check."
             return :admin 
-        elsif not UserList.where(channel_id: channel_id).empty?
+        else unless UserList.where(channel_id: channel_id).empty?
+            name = UserList.where(channel_id: channel_id).last&.name
+            p "User, #{name}, has been check."
             return :user 
         else
             return :unregisted

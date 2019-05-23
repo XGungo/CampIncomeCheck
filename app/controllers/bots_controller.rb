@@ -38,6 +38,7 @@ class BotsController < ApplicationController
         else unless UserList.where(channel_id: channel_id).empty?
             name = UserList.where(channel_id: channel_id).last&.name
             p "User, #{name}, has been check."
+            end
             return :user 
         else
             return :unregisted

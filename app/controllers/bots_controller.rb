@@ -30,7 +30,7 @@ class BotsController < ApplicationController
             user_regist(channel_id, received_text)
         end 
 
-        end
+        
     end
     def dual_status(channel_id)
         unless AdminList.where(channel_id: channel_id).empty?

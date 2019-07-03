@@ -2,7 +2,7 @@ module DualContentCheck
     def dual_content_check(channel_id, received_text)
         case dual_status(channel_id)
         when :admin
-        when :user 
+        when :user
         when :unregisted
             admin_regist(channel_id,received_text)
             user_regist(channel_id, received_text)
